@@ -17,8 +17,14 @@ app.use('/public', publicRoutes);
 app.use('/auth', authRoutes);
 app.use('/protected', protectedRoutes);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port http://localhost:${PORT}`);
-  console.log(`Swagger Docs available at http://localhost:${PORT}/docs`);
+// Global Error Handler for sweet messages
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  res.status(statusCode).json({
+    success: false,
+    message: err.message || "Something went wrong on server",
+  });
 });
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
