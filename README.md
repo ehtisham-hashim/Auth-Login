@@ -1,16 +1,15 @@
 # Auth-Login API 🚀
 
-This is a secure backend API built with Node.js, Express, and Supabase Auth. It handles the complete authentication flow (Signup, Login, Logout, and Protected Routes) exactly as required for the assignment.
+Bhai, this is a secure backend API built with Node.js, Express, and Supabase Auth. It handles the complete authentication flow (Signup, Login, Logout, and Protected Routes) exactly as required for the assignment.
 
 ## Database Evidence
-
 Check this out, our users are sitting perfectly inside the Supabase database:
 
 ![Database Users](./images/database.png)
 
 ---
 
-## Setup
+## Setup 
 
 1. Create a `.env` file in the root folder and drop your Supabase keys there:
    ```env
@@ -18,7 +17,14 @@ Check this out, our users are sitting perfectly inside the Supabase database:
    SUPABASE_URL=your_supabase_url
    SUPABASE_KEY=your_anon_public_key
    ```
-2. Install the packages:
+   
+2. **🚨 Crucial Supabase Step (Don't skip this, bhai!):** 
+   By default, Supabase requires users to verify their emails. For local testing, you need to turn this off:
+   * Go to your Supabase Dashboard.
+   * Click **Authentication** -> **Providers** -> **Email**.
+   * Toggle **"Confirm email"** to **OFF** and hit Save. *(If you skip this, your logins will fail with a 401 Unauthorized error!)*
+
+3. Install the packages:
    ```bash
    pnpm install
    ```
@@ -28,7 +34,6 @@ Check this out, our users are sitting perfectly inside the Supabase database:
 ```bash
 pnpm dev
 ```
-
 The server will start on `http://localhost:3000`. The scene is totally on!
 
 ---
